@@ -22,7 +22,13 @@ Download the app from [Releases](https://github.com/satyam-saxen/clock-app/relea
 1. Download the zip for your Mac
 2. Unzip it
 3. Drag `ClockScreensaver.app` to your **Applications** folder
-4. Right-click the app → **Open** (required only the first time since the app isn't code-signed)
+4. Open Terminal and run:
+   ```bash
+   xattr -cr /Applications/ClockScreensaver.app
+   ```
+5. Double-click the app to launch
+
+> **Why step 4?** macOS quarantines files downloaded from the internet. Since the app isn't code-signed, this command removes the quarantine flag so macOS allows it to run.
 
 The app launches fullscreen with no window borders and hides the cursor. Press any key to quit.
 
