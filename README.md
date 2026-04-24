@@ -1,12 +1,54 @@
-# React + Vite
+# Clock Screensaver
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal, fullscreen animated clock built with React — designed to work as a screensaver on macOS.
 
-Currently, two official plugins are available:
+Each digit of the time (HH:MM:SS) is displayed in its own scrolling column, with smooth animations as values change. The current digit is highlighted while surrounding digits fade into the background.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Demo
 
-## Expanding the ESLint configuration
+🌐 **[Live Demo](https://satyam-saxen.github.io/clock-app/)** — open it and press `F11` for fullscreen.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Download (macOS)
+
+Download the app from [Releases](https://github.com/satyam-saxen/clock-app/releases):
+
+| Mac Type | Download |
+|----------|----------|
+| Apple Silicon (M1/M2/M3/M4) | `ClockScreensaver-mac-arm64.zip` |
+| Intel | `ClockScreensaver-mac-x64.zip` |
+
+### Installation
+
+1. Download the zip for your Mac
+2. Unzip it
+3. Drag `ClockScreensaver.app` to your **Applications** folder
+4. Right-click the app → **Open** (required only the first time since the app isn't code-signed)
+
+The app launches fullscreen with no window borders and hides the cursor. Press any key to quit.
+
+## Tech Stack
+
+- **React** — UI
+- **Vite** — build tool
+- **vite-plugin-singlefile** — bundles everything into a single HTML file
+- **Electron** — native macOS app wrapper
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run in browser
+npm run dev
+
+# Build for web
+npm run build
+
+# Package macOS app (replace ARCH with x64 or arm64)
+npx electron-packager . ClockScreensaver --platform=darwin --arch=ARCH --icon=icon.icns --overwrite
+```
+
+## License
+
+MIT
