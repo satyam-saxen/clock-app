@@ -1,0 +1,31 @@
+name: Release Electron App
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        arch: [x64, arm64]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run build
+      - name: Package Electron app
+        run: npx electron-packager . ClockScreensaver --platform=darwin --arch=${{ matrix.arch }} --icon=icon.icns --overwrite --ignore="ClockScreensaver-darwin-"
+      - name: Zip app
+        run: cd ClockScreensaver-darwin-${{ matrix.arch }} && zip -r -9 ../ClockScreensaver-mac-${{ matrix.arch }}.zip ClockScreensaver.app
+      - name: Upload release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ClockScreensaver-mac-${{ matrix.arch }}.zip
