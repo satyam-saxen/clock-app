@@ -20,15 +20,18 @@ Download the app from [Releases](https://github.com/satyam-saxen/clock-app/relea
 ### Installation
 
 1. Download the zip for your Mac
-2. Unzip it
+2. Double-click the zip to extract it
 3. Drag `ClockScreensaver.app` to your **Applications** folder
-4. Open Terminal and run:
-   ```bash
-   xattr -cr /Applications/ClockScreensaver.app
-   ```
+4. On first launch, macOS will show a security warning. To allow it:
+   - Open **System Settings → Privacy & Security**
+   - Scroll down and click **Open Anyway** next to the ClockScreensaver message
+   - Alternatively, open Terminal and run:
+     ```bash
+     xattr -cr /Applications/ClockScreensaver.app
+     ```
 5. Double-click the app to launch
 
-> **Why step 4?** macOS quarantines files downloaded from the internet. Since the app isn't code-signed, this command removes the quarantine flag so macOS allows it to run.
+> **Why the security warning?** The app is ad-hoc signed but not notarized with Apple, so macOS Gatekeeper blocks it on first launch. The steps above tell macOS you trust the app.
 
 The app launches fullscreen with no window borders and hides the cursor. Press any key to quit.
 
