@@ -1,0 +1,20 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "satyam2saxena@gmail.com",
+                "Name": "Satyam Saxena"
+            }
+        ],
+        "Category": "Date and Time",
+        "Description": "A minimal, animated scrolling clock based on React.",
+        "EnabledByDefault": true,
+        "Icon": "chronometer",
+        "Id": "com.satyamsaxena.clockapp",
+        "License": "MIT",
+        "Name": "React Scrolling Clock",
+        "Version": "1.0.0",
+        "Website": "https://github.com/satyam-saxen/clock-app"
+    },
+    "KPackageStructure": "Plasma/Applet"
+}
