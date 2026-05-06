@@ -27,3 +27,5 @@ dist-ssr
 ClockScreensaver-darwin-*
 *.zip
 *.icns
+*.plasmoid
+plasmoid/package/contents/html/

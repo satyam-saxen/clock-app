@@ -35,6 +35,32 @@ Download the app from [Releases](https://github.com/satyam-saxen/clock-app/relea
 
 The app launches fullscreen with no window borders and hides the cursor. Press any key to quit.
 
+## KDE Plasma 6 Widget (Plasmoid)
+
+You can also install this clock as a native desktop widget for KDE Plasma 6.
+
+### Installation
+
+1. **Build the package:**
+   ```bash
+   npm run build:plasmoid
+   ```
+2. **Install to Plasma:**
+   ```bash
+   kpackagetool6 -i clock-app.plasmoid
+   ```
+   *If you are updating an existing installation, use:*
+   ```bash
+   kpackagetool6 -u clock-app.plasmoid
+   ```
+3. **Add to Desktop:**
+   Right-click your desktop or panel, select "Add Widgets...", and search for "React Scrolling Clock".
+
+> **Note:** This widget requires the Qt 6 WebEngine to function. On OpenSUSE, you can install it with:
+> ```bash
+> sudo zypper install libqt6webengine6
+> ```
+
 ## Tech Stack
 
 - **React** — UI
