@@ -18,8 +18,8 @@ function getTime() {
     .map(v => String(v).padStart(2, '0')).join('');
 }
 
-const COL_HEIGHT = 184;
-const ITEM_HEIGHT = COL_HEIGHT / 10;
+const COL = 180;
+const CELL = COL / 10;
 
 export const render = () => {
   const time = getTime();
@@ -28,14 +28,12 @@ export const render = () => {
       {time.split('').map((char, index) => {
         const digits = getDigitList(index, time);
         const currentIdx = digits.indexOf(char);
-        const offset = (COL_HEIGHT / 2) - (currentIdx * ITEM_HEIGHT) - (ITEM_HEIGHT / 2);
+        const top = (COL / 2) - (currentIdx * CELL) - (CELL / 2);
         return (
           <div key={index} className="col">
-            <div className="inner" style={{transform: `translateY(${offset}px)`}}>
+            <div className="inner" style={{top: `${top}px`}}>
               {digits.map((d, i) => (
-                <span key={i} className={`digit${i === currentIdx ? ' active' : ''}`}>
-                  {d}
-                </span>
+                <div key={i} className={`cell${i === currentIdx ? ' active' : ''}`}>{d}</div>
               ))}
             </div>
           </div>
@@ -54,6 +52,7 @@ export const className = `
   .clock {
     display: flex;
     gap: 4px;
+    width: 100%;
     height: 100%;
     background: #111;
     border-radius: 12px;
@@ -64,37 +63,35 @@ export const className = `
 
   .col {
     flex: 1;
-    overflow: hidden;
     position: relative;
-    height: ${COL_HEIGHT}px;
+    overflow: hidden;
+    height: ${COL}px;
   }
 
   .inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s cubic-bezier(.4,2,.6,1);
     position: absolute;
-    width: 100%;
-    top: 0;
+    left: 0;
+    right: 0;
+    transition: top 0.3s cubic-bezier(.4,2,.6,1);
   }
 
-  .digit {
+  .cell {
+    height: ${CELL}px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 85%;
-    height: ${ITEM_HEIGHT}px;
     border: 1px solid #444;
-    border-radius: 100px;
+    border-radius: 6px;
     color: #555;
     font-family: 'Courier New', monospace;
-    font-size: 16px;
+    font-size: 13px;
     box-sizing: border-box;
+    width: 50%;
     margin: 0 auto;
+    font-weight: bold;
   }
 
-  .digit.active {
+  .cell.active {
     color: #410202;
     background: #fff;
     border-color: #fff;
