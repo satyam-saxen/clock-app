@@ -60,6 +60,29 @@ You can also install this clock as a native desktop widget for KDE Plasma 6.
 > ```bash
 > sudo zypper install libqt6webengine6
 > ```
+## Desktop Widget (macOS)
+
+You can also run this clock as a desktop widget using [Übersicht](https://tracesof.net/uebersicht/)
+
+### Setup
+
+1. Install Übersicht from https://tracesof.net/uebersicht/
+2. Copy `widget/clock.jsx` to your Übersicht widgets folder:
+   ```bash
+   cp widget/clock.jsx ~/Library/Application\ Support/Übersicht/widgets/clock.jsx
+   ```
+3. The clock widget will appear on your desktop (top-left corner by default)
+
+You can edit position and size by modifying the `className` export in the file.
+
+### Run automatically on login
+
+Übersicht must be running for the widget to display. To start it automatically:
+
+1. Open **System Settings → General → Login Items**
+2. Click **+** and select **Übersicht** from Applications
+
+The widget will now appear on your desktop every time you log in.
 
 ## Tech Stack
 
