@@ -10,6 +10,7 @@
     "dev": "vite",
     "build": "vite build",
     "build:plasmoid": "./build-plasmoid.sh",
+    "widget": "electron . --widget",
     "lint": "eslint .",
     "preview": "vite preview"
   },

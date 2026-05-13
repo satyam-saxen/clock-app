@@ -60,6 +60,20 @@ You can also install this clock as a native desktop widget for KDE Plasma 6.
 > ```bash
 > sudo zypper install libqt6webengine6
 > ```
+## Desktop Widget (Windows)
+
+Run the clock as a desktop widget on Windows using Electron.
+
+### Download
+
+Download `ClockWidget-win64.zip` from [Releases](https://github.com/satyam-saxen/clock-app/releases), unzip, and run:
+
+```
+ClockWidget.exe --widget
+```
+
+To quit, right-click the tray icon and select "Quit".
+
 ## Desktop Widget (macOS)
 
 You can also run this clock as a desktop widget using [Übersicht](https://tracesof.net/uebersicht/)

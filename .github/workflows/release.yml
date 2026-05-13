@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  build-mac:
     runs-on: macos-latest
     strategy:
       matrix:
@@ -31,3 +31,21 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: ClockScreensaver-mac-${{ matrix.arch }}.zip
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run build
+      - name: Package Windows widget
+        run: npx electron-packager . ClockWidget --platform=win32 --arch=x64 --overwrite --ignore="ClockWidget-win32-"
+      - name: Zip app
+        run: Compress-Archive -Path ClockWidget-win32-x64\* -DestinationPath ClockWidget-win64.zip
+      - name: Upload release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ClockWidget-win64.zip
