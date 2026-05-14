@@ -8,7 +8,6 @@ function createWidget() {
     width: 500,
     height: 200,
     frame: false,
-    transparent: true,
     skipTaskbar: true,
     resizable: true,
     hasShadow: false,
@@ -27,7 +26,7 @@ function createWidget() {
 
   win.webContents.on('did-finish-load', () => {
     win.webContents.insertCSS(`
-      body { background: transparent !important; }
+      body { background: #000 !important; -webkit-app-region: drag; }
       .clock.fullscreen {
         border-radius: 12px;
         background: rgba(17,17,17,0.95) !important;
