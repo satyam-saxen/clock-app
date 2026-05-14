@@ -69,10 +69,21 @@ Run the clock as a desktop widget on Windows using Electron.
 Download `ClockWidget-win64.zip` from [Releases](https://github.com/satyam-saxen/clock-app/releases), unzip, and run:
 
 ```
-ClockWidget.exe --widget
+start "" ClockWidget.exe --widget
 ```
 
 To quit, right-click the tray icon and select "Quit".
+
+### Create a desktop shortcut (optional)
+
+1. Right-click on Desktop → **New → Shortcut**
+2. For location, enter the path to the exe with `--widget` flag:
+   ```
+   "C:\path\to\ClockWidget\ClockWidget.exe" --widget
+   ```
+3. Name it "Clock Widget" and click Finish
+
+Double-click the shortcut to launch. To run on startup, press `Win+R`, type `shell:startup`, and copy the shortcut there.
 
 ## Desktop Widget (macOS)
 
